@@ -1,0 +1,69 @@
+APP.HTML
+
+
+<nav class="navbar navbar-expand bg-light">
+  <a class="navbar-brand" routerLink="/home" routerLinkActive="active">CMRIT</a>
+  <ul class="navbar-nav navbar-collapse collapse">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/profile" routerLinkActive="active">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+    </li>
+  </ul>
+</nav>
+<router-outlet/>
+
+
+
+
+
+app-routing-module.ts
+
+
+
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { Home } from './home/home';
+import { Contact } from './contact/contact';
+import { About } from './about/about';
+import { Login } from './login/login';
+import { Profile } from './profile/profile';
+import { Register } from './register/register';
+
+const routes: Routes = [
+  {path:'',redirectTo:'/home',pathMatch:'full'},
+  {path:'home',component:Home},
+  {path:'contact',component:Contact},
+  {path:'about',component:About},
+  {path:'login',component:Login},
+  {path:'profile',component:Profile},
+  {path:'register',component:Register}
+  
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+
+index.html
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" >
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
